@@ -82,6 +82,9 @@ class oxThemeInstaller extends oxSuperCfg
                 $sTheme      = 'theme:'.$sThemeId;
                 $sName       = $aValue["name"];
                 $sType       = $aValue["type"];
+                
+                // Use getShopConfVar() instead of getConfigParam() to ensure we are fetching from the correct them.
+                // If two themes have a variable with the same name, getConfigParam() might return the wrong one.
                 $sValue      = is_null( $oConfig->getShopConfVar($sName, $sShopId, $sTheme) ) ? $aValue["value"] : $oConfig->getShopConfVar($sName, $sShopId, $sTheme);
                 $sGroup      = $aValue["group"];
 
