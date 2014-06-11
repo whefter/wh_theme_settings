@@ -4,6 +4,10 @@ OXID module enabling the use of a "settings" section in theme metadata files (th
 
 The general idea is to make it easier to manage a theme's settings during development instead of adding them to the database manually.
 
+Note: to make changes apparent for edited theme.php files, activate a different module and re-activate your module so that the data for new configuration variables is written to the database.
+
+Note 2: Viewing the theme settings for a theme that has not been activated before will display empty settings.
+
 The behaviour and syntax is identical to that of modules.
 
 Syntax example for the "azure" module:

@@ -103,13 +103,12 @@ class wh_theme_settings_theme_config extends wh_theme_settings_theme_config_pare
                 // Use getShopConfVar() instead of getConfigParam() to ensure we are fetching from the correct them.
                 // If two themes have a variable with the same name, getConfigParam() might return the wrong one.
                 if ( is_null($oConfig->getShopConfVar($sName, $oConfig->getShopId(), $this->_getModuleForConfigVars())) ) {
-                    echo $sName;
                     switch ($aValue["type"]){
                         case "arr":
-                            $sValue = $this->_arrayToMultiline( unserialize( $aValue["value"] ) );
+                            $sValue = $this->_arrayToMultiline( @unserialize( $aValue["value"] ) );
                             break;
                         case "aarr":
-                            $sValue = $this->_aarrayToMultiline( unserialize( $aValue["value"] ) );
+                            $sValue = $this->_aarrayToMultiline( @unserialize( $aValue["value"] ) );
                             break;
                     }
                     $sValue = getStr()->htmlentities( $sValue );
